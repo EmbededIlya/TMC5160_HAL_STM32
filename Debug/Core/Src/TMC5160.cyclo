@@ -1,0 +1,13 @@
+../Core/Src/TMC5160.c:4:19:TMC5160_WriteRegister	1
+../Core/Src/TMC5160.c:21:19:TMC5160_ReadRegister	1
+../Core/Src/TMC5160.c:40:19:TMC5160_Configuration	6
+../Core/Src/TMC5160.c:83:19:TMC5160_setFirstAcceleration	1
+../Core/Src/TMC5160.c:92:19:TMC5160_setMaxAcceleration	1
+../Core/Src/TMC5160.c:100:19:TMC5160_setMaxDeceleration	1
+../Core/Src/TMC5160.c:108:19:TMC5160_setSecondDeceleration	1
+../Core/Src/TMC5160.c:116:19:TMC5160_setStopVelocity	2
+../Core/Src/TMC5160.c:124:19:TMC5160_setFirstVelocity	2
+../Core/Src/TMC5160.c:132:19:TMC5160_setMaxVelocity	2
+../Core/Src/TMC5160.c:140:19:TMC5160_setRampMode	1
+../Core/Src/TMC5160.c:145:19:TMC5160_Configuration_Drive	1
+../Core/Src/TMC5160.c:157:19:TMC5160_default_init	10
