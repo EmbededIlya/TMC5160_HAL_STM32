@@ -101,20 +101,32 @@ typedef struct{
 		uint16_t				   CS;
 
 		//Configuration Acceleration and velocity
-			uint32_t max_speed;
-			uint32_t stop_speed;
-			uint32_t first_speed;
-			uint16_t first_acceleration;
-			uint16_t max_deceleration;
-			uint16_t second_deceleration;
-			uint16_t max_acceleration;
-			uint8_t ramp_mode;
-
+		uint8_t max_speed[4];
+		uint8_t stop_speed[4];
+		uint8_t first_speed[4];
+		uint8_t first_acceleration[4];
+		uint8_t max_deceleration[4];
+		uint8_t second_deceleration[4];
+		uint8_t max_acceleration[4];
+		uint8_t ramp_mode[4];
 }TMC5160_HandleTypeDef;
 
-// Prototipes Functions
+// Prototypes Functions
 HAL_StatusTypeDef TMC5160_WriteRegister(TMC5160_HandleTypeDef *htmc, TMC5160_Regs reg_addr, uint8_t data[]);
 HAL_StatusTypeDef TMC5160_ReadRegister(TMC5160_HandleTypeDef *htmc, TMC5160_Regs reg_addr, uint8_t data[]);
 HAL_StatusTypeDef TMC5160_Configuration(TMC5160_HandleTypeDef *htmc);
+// Configuration  function of theVelocity  ad  Acceleration
+HAL_StatusTypeDef TMC5160_setFirstAcceleration(TMC5160_HandleTypeDef *htmc, uint16_t value);
+HAL_StatusTypeDef TMC5160_setMaxAcceleration(TMC5160_HandleTypeDef *htmc, uint16_t value);
+//
+HAL_StatusTypeDef TMC5160_setMaxDeceleration(TMC5160_HandleTypeDef *htmc, uint16_t value);
+HAL_StatusTypeDef TMC5160_setSecondDeceleration(TMC5160_HandleTypeDef *htmc, uint16_t value);
+HAL_StatusTypeDef TMC5160_setStopVelocity(TMC5160_HandleTypeDef *htmc, uint32_t value);
+HAL_StatusTypeDef TMC5160_setFirstVelocity(TMC5160_HandleTypeDef *htmc, uint32_t value);
+HAL_StatusTypeDef TMC5160_setMaxVelocity(TMC5160_HandleTypeDef *htmc, uint32_t value);
+HAL_StatusTypeDef TMC5160_setRampMode(TMC5160_HandleTypeDef *htmc, RampModes mode);
 
+// Configuration Drive
+HAL_StatusTypeDef TMC5160_Configuration_Drive(TMC5160_HandleTypeDef *htmc);
+HAL_StatusTypeDef TMC5160_default_init(TMC5160_HandleTypeDef *htmc);
 #endif /* LIBS_TMC5160_STM32_HAL_TMC5160_STM32_HAL_H_ */

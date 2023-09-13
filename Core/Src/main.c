@@ -117,42 +117,8 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-
   TMC5160_HandleTypeDef htmc = { &hspi1, GPIOA, SPI1_NSS_Pin};
-  TMC5160_WriteRegister(&htmc, XTARGET, cmd_move);
-  TMC5160_Configuration(&htmc);
-
-
-//  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_RESET);
-//  HAL_SPI_Transmit(&hspi1, cmd_move2, 5, 100);
-//  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_SET);
-//  HAL_Delay(10);
-//  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_RESET);
-//  HAL_SPI_Transmit(&hspi1, cmd_read, 5, 100);
-//  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_SET);
-//  HAL_Delay(2000);
-
-  for(int i = 0; i < 10; i++){
-
-//	  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_RESET);
-//	  HAL_SPI_Transmit(&hspi1, cmd_move, 5, 100);
-//	  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_SET);
-//	  HAL_Delay(2000);
-
-	  for(int i = 0; i < 8; i++){
-		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_RESET);
-		  HAL_SPI_Transmit(&hspi1, cmd_enable[i], 5, 100);
-		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_SET);
-		  HAL_Delay(1);
-	  }
-
-	  TMC5160_WriteRegister(&htmc, XTARGET, cmd_move);
-	  TMC5160_ReadRegister(&htmc, XACTUAL, cmd_read);
-  }
-
-
-//  HAL_SPI_TransmitReceive(*hspi1, *cmd_read, 5, 100);HAL_SPI_TransmitReceive(*hspi1, *cmd_read, 5, 100);
-
+  TMC5160_default_init(&htmc);
   /* USER CODE END 2 */
 
   /* Infinite loop */
