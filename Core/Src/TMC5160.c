@@ -216,4 +216,11 @@ HAL_StatusTypeDef TMC5160_default_init(TMC5160_HandleTypeDef *htmc){
 			}
 	return HAL_OK;
 }
+HAL_StatusTypeDef Example(TMC5160_HandleTypeDef *htmc, uint16_t value){
+  if((value > TMC5160_MAX_DECELERATION_LIMIT) || (value < 0) ){
+		return HAL_ERROR;
+	}
+	divide_uint32_t(value, htmc->max_deceleration  );
+	return HAL_OK;
+}
 
